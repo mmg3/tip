@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using TIP.Dtos;
 using TIP.IServices;
 
 namespace TIP.Controllers
 {
+    [EnableCors("AllowOrigin")]
     [ApiController]
     [Route("[controller]")]
     public class DepartmentController : ControllerBase
@@ -22,7 +24,7 @@ namespace TIP.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<DepartmentDTO> GetAll(int id)
+        public async Task<DepartmentDTO> FindById(int id)
         {
             return await _departmentService.FindById(id);
         }
@@ -34,7 +36,7 @@ namespace TIP.Controllers
         }
 
         [HttpPost]
-        public async Task<DepartmentDTO> GetAll([FromBody] DepartmentDTO entidad)
+        public async Task<DepartmentDTO> SaveOrUpdate([FromBody] DepartmentDTO entidad)
         {
             return await _departmentService.SaveOrUpdate(entidad);
         }

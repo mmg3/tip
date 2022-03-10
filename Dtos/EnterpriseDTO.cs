@@ -16,6 +16,6 @@ namespace TIP.Dtos
 
 
         [NoMap]
-        public virtual ICollection<DepartmentDTO> Departments{ get; set; }
+        public virtual ICollection<DepartmentDTO>? Departments{ get; set; }
     }
 }

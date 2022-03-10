@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using TIP.Dtos;
 using TIP.IServices;
 
 namespace TIP.Controllers
 {
+    [EnableCors("AllowOrigin")]
     [ApiController]
     [Route("[controller]")]
     public class EmployeeController : ControllerBase
@@ -22,7 +24,7 @@ namespace TIP.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<EmployeeDTO> GetAll(int id)
+        public async Task<EmployeeDTO> FindById(int id)
         {
             return await _employeeService.FindById(id);
         }
@@ -34,7 +36,7 @@ namespace TIP.Controllers
         }
 
         [HttpPost]
-        public async Task<EmployeeDTO> GetAll([FromBody] EmployeeDTO entidad)
+        public async Task<EmployeeDTO> SaveOrUpdate([FromBody] EmployeeDTO entidad)
         {
             return await _employeeService.SaveOrUpdate(entidad);
         }

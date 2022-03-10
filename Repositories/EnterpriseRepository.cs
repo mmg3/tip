@@ -41,7 +41,7 @@ namespace TIP.Repositories
             }
             catch (Exception ex)
             {
-                entity = null;
+                entity = new();
             }
             return entity;
         }

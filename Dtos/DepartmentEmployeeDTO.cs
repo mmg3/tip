@@ -19,5 +19,9 @@ namespace TIP.Dtos
 
         [NoMap]
         public virtual EmployeeDTO EmployeeNav { get; set; }
+        [NoMap]
+        public virtual string DepName { get; set; }
+        [NoMap]
+        public virtual string EmpName { get; set; }
     }
 }

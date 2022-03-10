@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TIP.Dtos;
 using TIP.IServices;
 
@@ -22,7 +24,7 @@ namespace TIP.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<EnterpriseDTO> GetAll(int id)
+        public async Task<EnterpriseDTO> FindById(int id)
         {
             return await _enterpriseService.FindById(id);
         }
@@ -34,9 +36,10 @@ namespace TIP.Controllers
         }
 
         [HttpPost]
-        public async Task<EnterpriseDTO> GetAll([FromBody] EnterpriseDTO entidad)
+        public async Task<EnterpriseDTO> SaveOrUpdate(string entidad)
         {
-            return await _enterpriseService.SaveOrUpdate(entidad);
+            EnterpriseDTO ent = JsonConvert.DeserializeObject<EnterpriseDTO>(entidad);
+            return await _enterpriseService.SaveOrUpdate(ent);
         }
     }
 }

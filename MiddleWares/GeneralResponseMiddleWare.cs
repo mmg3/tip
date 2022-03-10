@@ -33,8 +33,7 @@ namespace TIP.MiddleWares
                 sw.Flush();
                 memoryStreamModified.Position = 0;
 
-                await memoryStreamModified.CopyToAsync(originalBodyStream).ConfigureAwait(false);
-                context.Response.Body = originalBodyStream;
+                context.Response.Body = memoryStreamModified;
 
             }
         }
@@ -62,10 +61,11 @@ namespace TIP.MiddleWares
             }
             else
             {
+                response.StatusCode =200;
                 generalResponseDto.Status = false;
-                generalResponseDto.ErrorMessage = text;
-                generalResponseDto.Exception = text; //context.Features.Get<Exception>().InnerException == null ? context.Features.Get<Exception>().Message : context.Features.Get<Exception>().InnerException.ToString();
-                generalResponseDto.Entity = null;
+                generalResponseDto.ErrorMessage = "Message: " + text;
+                generalResponseDto.Exception = "Exception: " + text; //context.Features.Get<Exception>().InnerException == null ? context.Features.Get<Exception>().Message : context.Features.Get<Exception>().InnerException.ToString();
+                generalResponseDto.Entity = "";
                 generalResponseDto.Guid = new Guid().ToString();
             }
 
