@@ -4,11 +4,7 @@ Tech Evaluation
 1. Descargar el código en una carpeta local. Puede ser como archivo comprimido y extraerlo o clonando el repositorio.
 2. Abrir el SGBDD utilizado y conectarse a una instancia de MariaDB y ejecutar el script con nombre "TIP.sql" ubicado en la carpeta inicial del proyecto.
 3. Acceder a la carpeta donde se encuentran los archivos.
-4. Abrir una ventana de consola o powershell y ejecutar:
-
-dotnet run --project D:\Sistemas\Qapaq\SuiteCreditoServices\Otorgamiento\Otorgamiento\Suite.Otorgamiento.Consumo.Api D:\Sistemas\Qapaq\SuiteCreditoServices\Otorgamiento\Otorgamiento\Suite.Otorgamiento.Consumo.Api\bin\Debug\net6.0\Suite.Otorgamiento.Consumo.Api.dll --urls http://0.0.0.0:7214
-
-O, Abrir la solución con VS2022 y ejecutarla.
+4. Abrir la solución con VS2022 y ejecutarla.
 
 5.En un navegador acceder a la url https://localhost:7214/swagger/index.html
 
